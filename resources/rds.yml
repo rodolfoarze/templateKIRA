@@ -1,0 +1,26 @@
+Resources:
+  Database:
+    Type: AWS::RDS::DBCluster
+    Properties:
+      DatabaseName: ${self:custom.dbName}
+      Engine: aurora
+      EngineMode: serverless
+      MasterUsername: ${self:custom.dbUserName}
+      MasterUserPassword: ${self:custom.dbPassword}
+      ScalingConfiguration:
+        AutoPause: true
+        MaxCapacity: 16
+        MinCapacity: 2
+        SecondsUntilAutoPause: 300
+      DBSubnetGroupName:
+        Ref: DBSubnetGroup
+      VpcSecurityGroupIds:
+        - sg-095cdd35e2cc47651
+
+  DBSubnetGroup:
+    Type: "AWS::RDS::DBSubnetGroup"
+    Properties:
+      DBSubnetGroupDescription: "database subnet group"
+      SubnetIds:
+        - subnet-14b2ef48
+        - subnet-25431342
