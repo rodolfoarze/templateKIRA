@@ -5,7 +5,7 @@
   "main": "handler.js",
   "dependencies": {
     "mysql2": "^1.6.5",
-    "sequelize": "^5.1.0",
+    "sequelize": "^5.15.1",
     "serverless-appsync-plugin": "^1.1.0",
     "serverless-pseudo-parameters": "^2.4.0"
   },
